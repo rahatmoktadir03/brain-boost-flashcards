@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(138, 213, 236);
+  text-align: center;
+}
+
+.app-container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 20px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.flashcard {
+  width: 500px;
+  height: 280px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px auto;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.flashcard:hover {
+  transform: scale(1.08);
+}
+
+.flashcard-image {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+}
+
+.prev {
+  background-color: #ff5733;
+}
+.prev:hover {
+  background-color: #c70039;
+}
+
+.next {
+  background-color: #28a745;
+}
+.next:hover {
+  background-color: #1e7e34;
+}
+
+.math {
+  background-color: #ffd700;
+  color: white;
+}
+.history {
+  background-color: #8b0000;
+  color: white;
+}
+.science {
+  background-color: #228b22;
+  color: white;
+}
+.computer {
+  background-color: rgb(59, 1, 68);
+  color: white;
+}
