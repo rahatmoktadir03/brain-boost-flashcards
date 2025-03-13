@@ -1,8 +1,11 @@
-# Web Development Project 2 - FlashCards!
+# Web Development Project 3 - FlashCards!
 
 Submitted by: Rahat Moktadir
 
-This web app: This web app is a **Flashcards Quiz** that helps users study and test their knowledge across multiple subjects, including **Computer Science, Environmental Science, Math, and History**. It displays flashcards with questions, answers, and images, allowing users to flip cards, navigate through them, and study in a randomized order. The app also features category-based colors, hover effects, and a stylish UI for an engaging learning experience.
+This web app:
+**Brain Boost** is an interactive study tool designed to help users expand their knowledge across various subjects, including Computer Science, Environmental Science, Math, and History. Featuring a sleek and user-friendly interface, the app allows users to test their memory with visually engaging flashcards that include images, category-based colors, and a dynamic question-and-answer format.
+
+Users can enter their guesses, receive instant feedback, and navigate through cards using next and previous buttons. Additional features include shuffle mode for randomized learning, streak tracking for progress monitoring, and the ability to mark mastered cards. With smooth animations and an intuitive design, **Brain Boost** makes studying fun and effective!
 
 Time spent: 3 hours spent in total
 
@@ -10,21 +13,17 @@ Time spent: 3 hours spent in total
 
 The following **required** functionality is completed:
 
-- [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [x] **A list of card pairs is created**
-- [x] **Clicking on the card shows the corresponding component of the information pair**
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can enter their guess in a box before seeing the flipside of the card**
+- [x] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [x] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [x] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
 
 The following **optional** features are implemented:
 
-- [x] Cards contains images in addition to or in place of text
-- [x] Cards have different visual styles such as color based on their category
-- [x] _visual style implemented_
-
-The following **additional** features are implemented:
-
-- [] List anything else that you added to improve the site's functionality!
+- [x] A shuffle button is used to randomize the order of the cards
+- [x] A user's answer may be counted as correct even when it is slightly different from the target answer
+- [x] A counter displays the user's current and longest streak of correct responses
+- [x] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
 
 ## Video Walkthrough
 

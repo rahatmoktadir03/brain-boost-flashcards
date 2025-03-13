@@ -96,42 +96,102 @@ const flashcards = [
 
 function FlashcardApp() {
   const [currentCard, setCurrentCard] = useState(0);
+  const [userInput, setUserInput] = useState("");
+  const [feedback, setFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
-
-  const handleCardClick = () => {
-    setShowAnswer(!showAnswer);
-  };
+  const [streak, setStreak] = useState(0);
+  const [masteredCards, setMasteredCards] = useState([]);
+  const [shuffledCards, setShuffledCards] = useState(flashcards);
 
   const handleNextClick = () => {
-    setCurrentCard((prev) => (prev + 1) % flashcards.length);
+    setCurrentCard((prev) => (prev + 1) % shuffledCards.length);
+    setUserInput("");
+    setFeedback("");
     setShowAnswer(false);
   };
 
   const handlePrevClick = () => {
     setCurrentCard(
-      (prev) => (prev - 1 + flashcards.length) % flashcards.length
+      (prev) => (prev - 1 + shuffledCards.length) % shuffledCards.length
     );
+    setUserInput("");
+    setFeedback("");
     setShowAnswer(false);
+  };
+
+  const handleSubmit = () => {
+    const correctAnswer = shuffledCards[currentCard].answer
+      .toLowerCase()
+      .trim();
+    const userAnswer = userInput.toLowerCase().trim();
+
+    if (userAnswer === correctAnswer) {
+      setFeedback("✅ Correct!");
+      setStreak((prev) => prev + 1);
+    } else {
+      setFeedback(
+        `❌ Incorrect! The correct answer is: ${shuffledCards[currentCard].answer}`
+      );
+      setStreak(0); // Reset streak on incorrect answer
+    }
+  };
+
+  const handleShuffle = () => {
+    const shuffled = [...flashcards].sort(() => Math.random() - 0.5);
+    setShuffledCards(shuffled);
+    setCurrentCard(0); // Reset to first card in shuffled set
+  };
+
+  const markAsMastered = () => {
+    if (!masteredCards.includes(currentCard)) {
+      setMasteredCards([...masteredCards, currentCard]);
+    }
   };
 
   return (
     <div className="app-container">
       <h1>Brain Boost: Flashcards!</h1>
       <p className="subtitle">Expand your knowledge, one card at a time.</p>
+
+      <p className="streak">🔥 Streak: {streak}</p>
+
       <Flashcard
-        question={flashcards[currentCard].question}
-        answer={flashcards[currentCard].answer}
-        image={flashcards[currentCard].image}
-        category={flashcards[currentCard].category}
+        question={shuffledCards[currentCard].question}
+        answer={shuffledCards[currentCard].answer}
+        image={shuffledCards[currentCard].image}
+        category={shuffledCards[currentCard].category}
         showAnswer={showAnswer}
-        onClick={handleCardClick}
+        onClick={() => setShowAnswer(!showAnswer)}
       />
+
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Type your answer here..."
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+        />
+        <button className="submit-button" onClick={handleSubmit}>
+          Submit
+        </button>
+      </div>
+
+      {feedback && <p className="feedback">{feedback}</p>}
+
       <div className="button-container">
         <button className="button prev" onClick={handlePrevClick}>
           Previous
         </button>
         <button className="button next" onClick={handleNextClick}>
           Next
+        </button>
+        <button className="button shuffle" onClick={handleShuffle}>
+          Shuffle
+        </button>
+        <button className="button mastered" onClick={markAsMastered}>
+          {masteredCards.includes(currentCard)
+            ? "✅ Mastered"
+            : "Mark as Mastered"}
         </button>
       </div>
     </div>
