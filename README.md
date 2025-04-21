@@ -1,4 +1,4 @@
-# Web Development Project 3 - FlashCards!
+# Web Development Project 2 + 3 - FlashCards!
 
 Submitted by: Rahat Moktadir
 
